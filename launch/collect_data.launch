@@ -1,0 +1,45 @@
+<launch>
+
+  <arg name="use_camera_front" default="true"/>
+  <arg name="use_camera_left" default="false"/>
+  <arg name="use_camera_right" default="false"/>
+  <arg name="use_camera_human" default="false"/>
+  <arg name="use_camera_alexei" default="false"/>
+  <arg name="use_camera_anna" default="false"/>
+  <arg name="camera_fps" default="-1"/>
+  <arg name="use_audio" default="false"/>
+
+  <include file="$(find fri_sawyer)/launch/both.launch" />
+
+  <include file="$(find fri_cameras)/launch/cameras.launch">
+    <arg name="front" value="$(arg use_camera_front)" />
+    <arg name="left" value="$(arg use_camera_left)" />
+    <arg name="right" value="$(arg use_camera_right)" />
+    <arg name="human" value="$(arg use_camera_human)" />
+    <arg name="alexei" value="$(arg use_camera_alexei)" />
+    <arg name="anna" value="$(arg use_camera_anna)" />
+    <arg name="fps" value="$(arg camera_fps)" />
+  </include>
+
+  <include file="$(find fri_project)/launch/recorder_topics.launch" >
+    <arg name="use_anna" value="true"/>
+    <arg name="use_alexei" value="true"/>
+    <arg name="use_camera_front" value="$(arg use_camera_front)"/>
+    <arg name="use_camera_left" value="$(arg use_camera_left)"/>
+    <arg name="use_camera_right" value="$(arg use_camera_right)"/>
+    <arg name="use_camera_human" value="$(arg use_camera_human)"/>
+    <arg name="use_camera_alexei" value="$(arg use_camera_alexei)"/>
+    <arg name="use_camera_anna" value="$(arg use_camera_anna)"/>
+    <arg name="use_audio" value="$(arg use_audio)"/>
+  </include>
+
+  <include file="$(find fri_sawyer)/launch/sawyer_recorder.launch">
+  <arg name="node_start_delay" value="5.0"/>
+    <arg name="dir_name" value="$(find fri_project)/../../data/"/>
+  </include>
+
+  <include file="$(find fri_sawyer)/launch/sawyer_shadowing.launch">
+    <arg name="node_start_delay" value="3.0"/>
+  </include>
+
+</launch>

@@ -1,0 +1,28 @@
+<launch>
+
+<rosparam command="delete" param="/recorder/topics" />
+
+<arg name="use_anna" default="true"/>
+<arg name="use_alexei" default="true"/>
+<arg name="use_camera_front" default="false"/>
+<arg name="use_camera_left" default="false"/>
+<arg name="use_camera_right" default="false"/>
+<arg name="use_camera_human" default="false"/>
+<arg name="use_camera_alexei" default="false"/>
+<arg name="use_camera_anna" default="false"/>
+<arg name="use_audio" default="false"/>
+
+<rosparam if="$(arg use_anna)" param="/recorder/topics/anna">[/anna/joint/states, /anna/end_effector/states]</rosparam>
+<rosparam if="$(arg use_alexei)" param="/recorder/topics/alexei">[/alexei/joint/states, /alexei/end_effector/states]</rosparam>
+
+<rosparam if="$(arg use_camera_front)" param="/recorder/topics/camera_front">[/camera/front/sd/image_color, /camera/front/sd/image_ir, /camera/front/sd/image_depth]</rosparam>
+<rosparam if="$(arg use_camera_left)" param="/recorder/topics/camera_left">[/camera/left/sd/image_color, /camera/left/sd/image_ir, /camera/left/sd/image_depth]</rosparam>
+<rosparam if="$(arg use_camera_right)" param="/recorder/topics/camera_right">[/camera/right/sd/image_color, /camera/right/sd/image_ir, /camera/right/sd/image_depth]</rosparam>
+<rosparam if="$(arg use_camera_human)" param="/recorder/topics/camera_human">[/camera/human/sd/image_color, /camera/human/sd/image_ir, /camera/human/sd/image_depth]</rosparam>
+<rosparam if="$(arg use_camera_alexei)" param="/recorder/topics/camera_alexei">[/camera/alexei_head/image_color]</rosparam>
+<rosparam if="$(arg use_camera_anna)" param="/recorder/topics/camera_anna">[/camera/anna_head/image_color]</rosparam>
+
+<rosparam if="$(arg use_audio)" param="/recorder/topics/audio">[/audio/environment, /audio/lavalier]</rosparam>
+
+
+</launch>
