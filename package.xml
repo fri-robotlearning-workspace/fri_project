@@ -52,36 +52,24 @@
   <build_depend>fri_cameras</build_depend>
   <build_depend>fri_rviz</build_depend>
   <build_depend>fri_sawyer</build_depend>
-  <build_depend>iai_kinect2</build_depend>
-  <build_depend>intera_common</build_depend>
   <build_depend>multicore_comm</build_depend>
   <build_depend>ros_numpy</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>sawyer_pykdl</build_depend>
-  <build_depend>sawyer_robot</build_depend>
-  <build_depend>screen_grap</build_depend>
   <build_export_depend>fri_cameras</build_export_depend>
   <build_export_depend>fri_rviz</build_export_depend>
   <build_export_depend>fri_sawyer</build_export_depend>
-  <build_export_depend>iai_kinect2</build_export_depend>
-  <build_export_depend>intera_common</build_export_depend>
   <build_export_depend>multicore_comm</build_export_depend>
   <build_export_depend>ros_numpy</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <build_export_depend>sawyer_pykdl</build_export_depend>
-  <build_export_depend>sawyer_robot</build_export_depend>
-  <build_export_depend>screen_grap</build_export_depend>
   <exec_depend>fri_cameras</exec_depend>
   <exec_depend>fri_rviz</exec_depend>
   <exec_depend>fri_sawyer</exec_depend>
-  <exec_depend>iai_kinect2</exec_depend>
-  <exec_depend>intera_common</exec_depend>
   <exec_depend>multicore_comm</exec_depend>
   <exec_depend>ros_numpy</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>sawyer_pykdl</exec_depend>
-  <exec_depend>sawyer_robot</exec_depend>
-  <exec_depend>screen_grap</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

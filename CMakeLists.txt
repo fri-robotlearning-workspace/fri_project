@@ -11,14 +11,10 @@ find_package(catkin REQUIRED COMPONENTS
   fri_cameras
   fri_rviz
   fri_sawyer
-  iai_kinect2
-  intera_common
   multicore_comm
   ros_numpy
   rospy
   sawyer_pykdl
-  sawyer_robot
-  screen_grap
 )
 
 ## System dependencies are found with CMake's conventions
@@ -113,7 +109,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES fri_project
-#  CATKIN_DEPENDS fri_cameras fri_rviz fri_sawyer iai_kinect2 intera_common multicore_comm ros_numpy rospy sawyer_pykdl sawyer_robot screen_grap
+#  CATKIN_DEPENDS fri_cameras fri_rviz fri_sawyer multicore_comm ros_numpy rospy sawyer_pykdl 
 #  DEPENDS system_lib
 )
 

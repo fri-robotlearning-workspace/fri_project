@@ -1,12 +1,12 @@
 <launch>
 
-  <arg name="use_camera_front" default="true"/>
+  <arg name="use_camera_front" default="false"/>
   <arg name="use_camera_left" default="false"/>
   <arg name="use_camera_right" default="false"/>
   <arg name="use_camera_human" default="false"/>
   <arg name="use_camera_alexei" default="false"/>
   <arg name="use_camera_anna" default="false"/>
-  <arg name="camera_fps" default="-1"/>
+  <arg name="camera_fps" default="10"/>
   <arg name="use_audio" default="false"/>
 
   <include file="$(find fri_sawyer)/launch/both.launch" />
