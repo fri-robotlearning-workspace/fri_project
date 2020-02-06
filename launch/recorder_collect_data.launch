@@ -1,0 +1,13 @@
+<launch>
+
+  <include file="$(find fri_sawyer)/launch/sawyer_recorder.launch">
+  <arg name="node_start_delay" value="5.0"/>
+      <arg name="dir_name" value="/data/fri/audio_study/user9/"/> <!-- add the correct user suffix to this address-->
+    <!-- <arg name="dir_name" value="$(find fri_project)/../../data/"/> -->
+  </include>
+
+  <include file="$(find fri_sawyer)/launch/sawyer_shadowing.launch">
+    <arg name="node_start_delay" value="3.0"/>
+  </include>
+
+</launch>

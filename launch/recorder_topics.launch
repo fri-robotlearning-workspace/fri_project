@@ -4,16 +4,17 @@
 
 <arg name="use_anna" default="true"/>
 <arg name="use_alexei" default="true"/>
-<arg name="use_camera_front" default="false"/>
-<arg name="use_camera_left" default="false"/>
-<arg name="use_camera_right" default="false"/>
-<arg name="use_camera_human" default="false"/>
+<arg name="use_camera_front" default="true"/>
+<arg name="use_camera_left" default="true"/>
+<arg name="use_camera_right" default="true"/>
+<arg name="use_camera_human" default="true"/>
 <arg name="use_camera_alexei" default="false"/>
 <arg name="use_camera_anna" default="false"/>
 <arg name="use_audio" default="false"/>
+<arg name="use_gaze" default="false"/>
 
-<rosparam if="$(arg use_anna)" param="/recorder/topics/anna">[/anna/joint/states, /anna/end_effector/states]</rosparam>
-<rosparam if="$(arg use_alexei)" param="/recorder/topics/alexei">[/alexei/joint/states, /alexei/end_effector/states]</rosparam>
+<rosparam if="$(arg use_anna)" param="/recorder/topics/anna">[/anna/joint/states, /anna/end_effector/states, /anna/keyframe/states]</rosparam>
+<rosparam if="$(arg use_alexei)" param="/recorder/topics/alexei">[/alexei/joint/states, /alexei/end_effector/states, /alexei/keyframe/states]</rosparam>
 
 <rosparam if="$(arg use_camera_front)" param="/recorder/topics/camera_front">[/camera/front/qhd/image_color_rect/compressed, /camera/front/qhd/image_depth_rect/compressed]</rosparam>
 <rosparam if="$(arg use_camera_left)" param="/recorder/topics/camera_left">[/camera/left/qhd/image_color_rect/compressed, /camera/left/qhd/image_depth_rect/compressed]</rosparam>
@@ -22,7 +23,7 @@
 <rosparam if="$(arg use_camera_alexei)" param="/recorder/topics/camera_alexei">[/camera/alexei_head/image_color]</rosparam>
 <rosparam if="$(arg use_camera_anna)" param="/recorder/topics/camera_anna">[/camera/anna_head/image_color]</rosparam>
 
-<rosparam if="$(arg use_audio)" param="/recorder/topics/audio">[/audio/environment, /audio/lavalier]</rosparam>
-
+<rosparam if="$(arg use_audio)" param="/recorder/topics/audio">[/environment/audio, /lavelier/audio]</rosparam>
+<rosparam if="$(arg use_gaze)" param="/recorder/topics/gaze_tracker">[/gaze/gaze_tracker]</rosparam>
 
 </launch>

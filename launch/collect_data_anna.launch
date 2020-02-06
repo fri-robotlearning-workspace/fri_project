@@ -1,22 +1,25 @@
 <launch>
 
   <arg name="use_camera_front" default="true"/>
-  <arg name="use_camera_left" default="true"/>
+  <arg name="use_camera_left" default="false"/>
   <arg name="use_camera_right" default="true"/>
   <arg name="use_camera_human" default="true"/>
   <arg name="use_camera_alexei" default="false"/>
-  <arg name="use_camera_anna" default="false"/>
+  <arg name="use_camera_anna" default="true"/>
   <arg name="camera_fps" default="10"/>
   <arg name="use_audio" default="true"/>
+  <arg name="use_gaze" default="true"/>
 <!-- use aplay -l to find audio port numbers for these arguments -->
 <!-- make sure that the environment mic is plugged in before the headset to ensure default port numbers make sense -->
 
 
-  <arg name="environment_audio" default="hw:6,0"/>
-  <arg name="lavelier_audio" default="hw:7,0"/>
+  <arg name="environment_audio" default="hw:4,0"/>
+  <!-- <arg name="lavelier_audio" default=""/> -->
+
+  <arg name="lavelier_audio" default="hw:0,0"/>
 
 
-  <include file="$(find fri_sawyer)/launch/both.launch" />
+  <include file="$(find fri_sawyer)/launch/anna.launch" />
 
   <include file="$(find fri_cameras)/launch/cameras.launch">
     <arg name="front" value="$(arg use_camera_front)" />
@@ -39,9 +42,14 @@
     <arg name="ns" value="lavelier" />
   </include>
 
+<!-- launch gaze tracking -->
+  <include file="$(find gaze_tracker)/launch/gaze_tracking.launch">
+    <arg name="gaze_track" value="$(arg use_gaze)" />
+  </include>
+
   <include file="$(find fri_project)/launch/recorder_topics.launch" >
     <arg name="use_anna" value="true"/>
-    <arg name="use_alexei" value="true"/>
+    <arg name="use_alexei" value="false"/>
     <arg name="use_camera_front" value="$(arg use_camera_front)"/>
     <arg name="use_camera_left" value="$(arg use_camera_left)"/>
     <arg name="use_camera_right" value="$(arg use_camera_right)"/>
@@ -49,7 +57,18 @@
     <arg name="use_camera_alexei" value="$(arg use_camera_alexei)"/>
     <arg name="use_camera_anna" value="$(arg use_camera_anna)"/>
     <arg name="use_audio" value="$(arg use_audio)"/>
+    <arg name="use_gaze" value="$(arg use_gaze)"/>
   </include>
+
+
+  <include file="$(find fri_sawyer)/launch/start_anna.launch">
+  </include>
+  
+  <include file="$(find fri_sawyer)/launch/sawyer_recorder.launch">
+  <arg name="node_start_delay" value="5.0"/>
+      <arg name="dir_name" value="/data/fri/audio_kt_study/user12"/> <!-- add the correct user suffix to this address -->
+  </include>
+
 
   <!-- <include file="$(find fri_sawyer)/laoject)/../../data/"/>
   </include>unch/sawyer_recorder.launch">
