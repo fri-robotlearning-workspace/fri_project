@@ -4,16 +4,18 @@
   <arg name="use_camera_left" default="true"/>
   <arg name="use_camera_right" default="true"/>
   <arg name="use_camera_human" default="true"/>
-  <arg name="use_camera_alexei" default="false"/>
-  <arg name="use_camera_anna" default="false"/>
+  <arg name="use_camera_alexei" default="true"/>
+  <arg name="use_camera_anna" default="true"/>
   <arg name="camera_fps" default="10"/>
   <arg name="use_audio" default="true"/>
 <!-- use aplay -l to find audio port numbers for these arguments -->
 <!-- make sure that the environment mic is plugged in before the headset to ensure default port numbers make sense -->
 
 
-  <arg name="environment_audio" default="hw:6,0"/>
-  <arg name="lavelier_audio" default="hw:7,0"/>
+  <arg name="environment_audio" default="hw:5,0"/>
+  <!-- <arg name="lavelier_audio" default=""/> -->
+
+  <arg name="lavelier_audio" default="hw:6,0"/>
 
 
   <include file="$(find fri_sawyer)/launch/both.launch" />
